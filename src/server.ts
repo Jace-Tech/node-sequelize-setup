@@ -1,8 +1,8 @@
 import {createServer} from 'http';
-import {app} from './app';
+import app from './app';
 import {sequelize} from './sequelize';
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 (async () => {
   await sequelize.sync({force: true});
@@ -10,6 +10,6 @@ const port = process.env.PORT || 3000;
   createServer(app)
     .listen(
       port,
-      () => console.info(`Server running on port ${port}`)
+      () => console.info(`Server running on port http://localhost:${port}`)
     );
 })();

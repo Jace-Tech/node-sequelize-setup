@@ -2,22 +2,22 @@
   "compileOnSave": false,
   "compilerOptions": {
     "target": "es6",
+    "rootDir": "./src",
+    "outDir": "./build",
     "module": "commonjs",
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "noUnusedLocals": true,
     "sourceMap": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "declaration": false,
     "pretty": true,
-    "strictNullChecks": true,
     "skipLibCheck": true,
-    "strictPropertyInitialization": true
+    "strict": true
   },
-  "include": [
-    "src/**/*.ts",
-    "index.ts"
-  ],
+  "include": ["src"],
   "exclude": [
     "node_modules"
   ]
