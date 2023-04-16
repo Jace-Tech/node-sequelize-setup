@@ -1,31 +1,17 @@
 import * as express from 'express';
-import * as bodyParser from 'body-parser';
-import * as errorhandler from 'strong-error-handler';
-import {movies} from './routes/movies';
-import {actors} from './routes/actors';
+import preMiddleware from './middlewares/pre.middleware';
+import errorMiddleware from './middlewares/error.middleware';
 
-export const app = express();
 
-// middleware for parsing application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended: true}));
+const app = express();
 
-// middleware for json body parsing
-app.use(bodyParser.json({limit: '5mb'}));
+// Register pre-middleware
+preMiddleware(app)
 
-// enable corse for all origins
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Expose-Headers", "x-total-count");
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH");
-  res.header("Access-Control-Allow-Headers", "Content-Type,authorization");
+// Routes
 
-  next();
-});
+// Register error middlewares
+errorMiddleware(app)
 
-app.use('/movies', movies);
-app.use('/actors', actors);
 
-app.use(errorhandler({
-  debug: process.env.ENV !== 'prod',
-  log: true,
-}));
+export default app

@@ -5,6 +5,9 @@
 # lib
 node_modules
 
+# env variables
+.env
+
 # build
 **/*.js
 **/*.js.map
