@@ -1,4 +1,4 @@
-import { cors } from "cors";
+import cors from "cors";
 import { Application } from "express";
 import * as bodyParser from "body-parser";
 

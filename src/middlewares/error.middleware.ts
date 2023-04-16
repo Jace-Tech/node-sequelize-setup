@@ -1,5 +1,5 @@
 import { Application, Request, Response } from 'express';
-import * as errorhandler from "strong-error-handler";
+import errorhandler from "strong-error-handler";
 import { response } from '../utils';
 
 export default (app: Application) => {
